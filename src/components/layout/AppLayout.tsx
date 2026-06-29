@@ -1,6 +1,6 @@
 import { useAppStore } from '../../store/useAppStore';
 import { 
-  ShieldCheck, House, Stethoscope, Notebook, Trash, User 
+  ShieldCheck, House, Stethoscope, Notebook, Trash
 } from '@phosphor-icons/react';
 import DashboardTab from '../../features/dashboard/DashboardTab';
 import DiagnosisTab from '../../features/diagnosis/DiagnosisTab';

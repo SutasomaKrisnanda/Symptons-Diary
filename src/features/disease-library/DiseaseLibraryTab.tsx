@@ -59,7 +59,7 @@ export default function DiseaseLibraryTab() {
                   </span>
                 </div>
                 {disease.isInfectious && (
-                  <Bug weight="fill" className="text-red-400 text-lg" title="Penyakit Infeksi" />
+                  <span title="Penyakit Infeksi"><Bug weight="fill" className="text-red-400 text-lg" /></span>
                 )}
               </div>
               

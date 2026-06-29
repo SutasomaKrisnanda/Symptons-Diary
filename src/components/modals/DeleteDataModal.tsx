@@ -1,4 +1,4 @@
-import { X, Warning, Trash } from '@phosphor-icons/react';
+import { Warning, Trash } from '@phosphor-icons/react';
 import { useAppStore } from '../../store/useAppStore';
 
 export default function DeleteDataModal() {

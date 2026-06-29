@@ -21,7 +21,7 @@ export default function DiseaseDetailModal({ disease, onClose }: { disease: any,
                   ICD-10: {disease.icd10}
                 </span>
                 {disease.isInfectious && (
-                  <Bug weight="fill" className="text-red-300 text-lg" title="Penyakit Infeksi" />
+                  <span title="Penyakit Infeksi"><Bug weight="fill" className="text-red-300 text-lg" /></span>
                 )}
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-2">{disease.name}</h2>

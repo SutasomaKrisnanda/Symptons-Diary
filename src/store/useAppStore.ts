@@ -145,7 +145,7 @@ export const useAppStore = create<AppState>()(
       })),
       
       setVitalsModalOpen: (isOpen) => set({ isVitalsModalOpen: isOpen }),
-      setSymptomModalOpen: (isOpen, prefilledId = null) => set({ isSymptomModalOpen: isOpen, prefilledSymptomId: prefilledId }),
+      setSymptomModalOpen: (isOpen, prefilledId = undefined) => set({ isSymptomModalOpen: isOpen, prefilledSymptomId: prefilledId || null }),
       setMedicationModalOpen: (isOpen) => set({ isMedicationModalOpen: isOpen }),
       setDeleteModalOpen: (isOpen) => set({ isDeleteModalOpen: isOpen }),
 

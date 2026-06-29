@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { Sparkle, Warning, Stethoscope, ArrowRight, ArrowCounterClockwise } from '@phosphor-icons/react';
+import { Sparkle, Warning, Stethoscope, ArrowCounterClockwise } from '@phosphor-icons/react';
 import { useAppStore } from '../../store/useAppStore';
-import { predictDiagnosis, getSymptomDetails } from '../../utils/aiDiagnosis';
+import { predictDiagnosis } from '../../utils/aiDiagnosis';
 
 type ChatMessage = {
   id: string;
