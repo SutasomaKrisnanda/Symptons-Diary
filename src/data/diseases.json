@@ -1,0 +1,750 @@
+[
+  {
+    "id": "dis_001",
+    "icd10": "A91",
+    "name": "Demam Berdarah Dengue (DBD)",
+    "category": "Infeksi",
+    "isInfectious": true,
+    "description": "Penyakit infeksi virus dengue yang ditularkan melalui gigitan nyamuk Aedes aegypti. Ditandai dengan kebocoran plasma yang berujung pada syok.",
+    "causes": "Infeksi virus Dengue serotipe 1-4 akibat gigitan nyamuk Aedes aegypti.",
+    "symptoms_weights": {
+      "sym_002": 5,
+      "sym_015": 4,
+      "sym_018": 5,
+      "sym_012": 2,
+      "sym_007": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Terus menerus",
+        "Mendadak tinggi (Saddleback fever)"
+      ],
+      "radiation": [
+        "Nyeri di belakang mata (Retro-orbital)"
+      ],
+      "aggravating_factors": [
+        "Aktivitas"
+      ],
+      "relieving_factors": [
+        "Obat penurun panas sementara"
+      ]
+    },
+    "red_flags": [
+      "Perdarahan gusi",
+      "Muntah darah",
+      "Bintik merah kulit banyak",
+      "Penurunan kesadaran"
+    ]
+  },
+  {
+    "id": "dis_002",
+    "icd10": "I20.0",
+    "name": "Angina Pektoris Tidak Stabil (UAP)",
+    "category": "Kardiovaskular",
+    "isInfectious": false,
+    "description": "Suatu bentuk sindrom koroner akut di mana plak aterosklerosis pecah sebagian, menyebabkan iskemia miokard akut tanpa infark. Kondisi kegawatdaruratan.",
+    "causes": "Aterosklerosis pada arteri koroner.",
+    "symptoms_weights": {
+      "sym_001": 5,
+      "sym_003": 4,
+      "sym_012": 5,
+      "sym_039": 3,
+      "sym_092": 4
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Seperti tertindih benda berat",
+        "Terbakar",
+        "Diremas"
+      ],
+      "radiation": [
+        "Rahang",
+        "Leher",
+        "Lengan kiri",
+        "Tembus ke punggung"
+      ],
+      "aggravating_factors": [
+        "Aktivitas fisik",
+        "Stres emosional"
+      ],
+      "relieving_factors": [
+        "Istirahat",
+        "Obat nitrat sublingual (ISDN)"
+      ]
+    },
+    "red_flags": [
+      "Nyeri menjalar ke lengan kiri",
+      "Keringat dingin masif",
+      "Hampir pingsan"
+    ]
+  },
+  {
+    "id": "dis_003",
+    "icd10": "A01.0",
+    "name": "Demam Tifoid (Tipes)",
+    "category": "Infeksi",
+    "isInfectious": true,
+    "description": "Infeksi saluran cerna akibat bakteri Salmonella typhi dari makanan tercemar.",
+    "causes": "Bakteri Salmonella typhi masuk melalui saluran cerna (fecal-oral).",
+    "symptoms_weights": {
+      "sym_002": 5,
+      "sym_004": 3,
+      "sym_007": 4,
+      "sym_008": 3,
+      "sym_043": 3,
+      "sym_051": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Makin tinggi di malam hari (step-ladder)"
+      ],
+      "radiation": [
+        "Menyebar ke seluruh perut"
+      ],
+      "aggravating_factors": [
+        "Makan makanan pedas/asam"
+      ],
+      "relieving_factors": [
+        "Obat paracetamol"
+      ]
+    },
+    "red_flags": [
+      "BAB berdarah",
+      "Penurunan kesadaran (delirium)"
+    ]
+  },
+  {
+    "id": "dis_004",
+    "icd10": "K21.9",
+    "name": "Gastroesophageal Reflux Disease (GERD)",
+    "category": "Gastrointestinal",
+    "isInfectious": false,
+    "description": "Penyakit asam lambung kronis di mana asam lambung naik ke esofagus menyebabkan iritasi mukosa.",
+    "causes": "Kelemahan sfingter esofagus bagian bawah.",
+    "symptoms_weights": {
+      "sym_001": 3,
+      "sym_041": 5,
+      "sym_005": 3,
+      "sym_051": 4,
+      "sym_009": 2,
+      "sym_042": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Sensasi dada terbakar (heartburn)",
+        "Panas"
+      ],
+      "radiation": [
+        "Ke kerongkongan",
+        "Rasa asam di lidah"
+      ],
+      "aggravating_factors": [
+        "Berbaring setelah makan",
+        "Kopi",
+        "Makanan pedas/berlemak"
+      ],
+      "relieving_factors": [
+        "Duduk tegak",
+        "Obat antasida"
+      ]
+    },
+    "red_flags": [
+      "Sulit menelan (Disfagia)",
+      "Muntah darah (Hematemesis)",
+      "Penurunan berat badan tanpa sebab"
+    ]
+  },
+  {
+    "id": "dis_005",
+    "icd10": "J18.9",
+    "name": "Pneumonia",
+    "category": "Kardiovaskular & Paru",
+    "isInfectious": true,
+    "description": "Infeksi pada kantung udara paru yang menyebabkan produksi nanah dan cairan.",
+    "causes": "Bakteri (Pneumococcus), virus, atau jamur.",
+    "symptoms_weights": {
+      "sym_002": 5,
+      "sym_003": 5,
+      "sym_010": 4,
+      "sym_001": 3,
+      "sym_061": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Nyeri dada saat menarik napas tajam (pleuritik)"
+      ],
+      "radiation": [
+        "Lokal di area dada yang terinfeksi"
+      ],
+      "aggravating_factors": [
+        "Menarik napas panjang",
+        "Batuk"
+      ],
+      "relieving_factors": [
+        "Posisi setengah duduk"
+      ]
+    },
+    "red_flags": [
+      "Saturasi Oksigen (SpO2) <92%",
+      "Kebiruan pada bibir (sianosis)",
+      "Napas sangat cepat"
+    ]
+  },
+  {
+    "id": "dis_006",
+    "icd10": "I10",
+    "name": "Hipertensi Primer",
+    "category": "Kardiovaskular",
+    "isInfectious": false,
+    "description": "Peningkatan tekanan darah secara persisten di atas normal. Disebut the silent killer karena jarang bergejala.",
+    "causes": "Faktor genetik, gaya hidup, asupan garam tinggi.",
+    "symptoms_weights": {
+      "sym_004": 4,
+      "sym_017": 5,
+      "sym_039": 3,
+      "sym_049": 2,
+      "sym_014": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Pegal",
+        "Berat di tengkuk"
+      ],
+      "radiation": [
+        "Menjalar ke bagian belakang leher dan bahu"
+      ],
+      "aggravating_factors": [
+        "Kurang tidur",
+        "Stres",
+        "Makanan asin"
+      ],
+      "relieving_factors": [
+        "Istirahat",
+        "Obat antihipertensi"
+      ]
+    },
+    "red_flags": [
+      "Penglihatan kabur mendadak",
+      "Kelemahan separuh tubuh",
+      "Sakit kepala sangat hebat mendadak"
+    ]
+  },
+  {
+    "id": "dis_007",
+    "icd10": "G43",
+    "name": "Migrain",
+    "category": "Saraf",
+    "isInfectious": false,
+    "description": "Sakit kepala primer berupa nyeri berdenyut sedang-berat pada sebelah sisi.",
+    "causes": "Perubahan aktivitas kimia saraf dan pembuluh darah otak.",
+    "symptoms_weights": {
+      "sym_004": 5,
+      "sym_005": 4,
+      "sym_045": 4,
+      "sym_046": 3,
+      "sym_006": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Berdenyut kuat"
+      ],
+      "radiation": [
+        "Satu sisi kepala (kiri atau kanan)",
+        "Menjalar ke area mata"
+      ],
+      "aggravating_factors": [
+        "Cahaya terang",
+        "Suara bising",
+        "Aktivitas fisik biasa"
+      ],
+      "relieving_factors": [
+        "Tidur di ruangan gelap dan tenang"
+      ]
+    },
+    "red_flags": [
+      "Aura yang berlangsung >1 jam",
+      "Lumpuh separuh badan",
+      "Kejang"
+    ]
+  },
+  {
+    "id": "dis_008",
+    "icd10": "N20.0",
+    "name": "Nefrolitiasis (Batu Ginjal)",
+    "category": "Metabolik & Urologi",
+    "isInfectious": false,
+    "description": "Terbentuknya batu padat di ginjal yang dapat turun dan menyumbat saluran kemih.",
+    "causes": "Dehidrasi, tingginya kadar kalsium/asam urat.",
+    "symptoms_weights": {
+      "sym_032": 5,
+      "sym_024": 4,
+      "sym_026": 5,
+      "sym_005": 3,
+      "sym_025": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Nyeri kolik",
+        "Tajam",
+        "Hilang timbul hebat"
+      ],
+      "radiation": [
+        "Menjalar dari pinggang belakang ke selangkangan/alat kelamin"
+      ],
+      "aggravating_factors": [
+        "Dehidrasi",
+        "Guncangan saat berkendara"
+      ],
+      "relieving_factors": [
+        "Perubahan posisi tertentu (jarang efektif)"
+      ]
+    },
+    "red_flags": [
+      "Urine kemerahan nyata",
+      "Demam tinggi",
+      "Tidak bisa buang air kecil sama sekali"
+    ]
+  },
+  {
+    "id": "dis_009",
+    "icd10": "K35",
+    "name": "Apendisitis Akut (Usus Buntu)",
+    "category": "Gastrointestinal",
+    "isInfectious": true,
+    "description": "Peradangan akut pada usus buntu yang merupakan kondisi kegawatan bedah.",
+    "causes": "Sumbatan lumen apendiks oleh feses, hiperplasia limfoid.",
+    "symptoms_weights": {
+      "sym_080": 5,
+      "sym_007": 3,
+      "sym_002": 3,
+      "sym_005": 4,
+      "sym_006": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Tumpul di awal",
+        "Menjadi tajam dan terlokalisasi di kanan bawah"
+      ],
+      "radiation": [
+        "Berawal di sekitar pusar, lalu berpindah ke perut kanan bawah"
+      ],
+      "aggravating_factors": [
+        "Berjalan",
+        "Batuk",
+        "Melepas tekanan di perut (nyeri lepas)"
+      ],
+      "relieving_factors": [
+        "Menekuk lutut ke arah dada"
+      ]
+    },
+    "red_flags": [
+      "Perut mengeras seperti papan",
+      "Nyeri tak tertahankan mendadak di seluruh perut"
+    ]
+  },
+  {
+    "id": "dis_010",
+    "icd10": "J45",
+    "name": "Asma Bronkial",
+    "category": "Kardiovaskular & Paru",
+    "isInfectious": false,
+    "description": "Peradangan kronis saluran napas yang menyebabkan hiperreaktivitas dan penyempitan jalan napas.",
+    "causes": "Alergen (debu, dingin), infeksi, atau stres emosional.",
+    "symptoms_weights": {
+      "sym_003": 5,
+      "sym_068": 5,
+      "sym_009": 3,
+      "sym_001": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Dada terasa sempit",
+        "Ada suara ngik-ngik (mengi) saat membuang napas"
+      ],
+      "radiation": [
+        "Tidak menjalar"
+      ],
+      "aggravating_factors": [
+        "Paparan dingin",
+        "Debu",
+        "Dini hari"
+      ],
+      "relieving_factors": [
+        "Inhaler bronkodilator",
+        "Duduk condong ke depan"
+      ]
+    },
+    "red_flags": [
+      "Bibir kebiruan",
+      "Bicara terputus-putus",
+      "Inhaler tidak memberi efek membaik"
+    ]
+  },
+  {
+    "id": "dis_011",
+    "icd10": "I63",
+    "name": "Stroke Iskemik",
+    "category": "Saraf",
+    "isInfectious": false,
+    "description": "Kematian jaringan otak akibat penyumbatan pembuluh darah arteri otak, memerlukan penanganan FAST segera.",
+    "causes": "Trombus atau emboli di pembuluh darah otak.",
+    "symptoms_weights": {
+      "sym_033": 5,
+      "sym_035": 5,
+      "sym_034": 5,
+      "sym_036": 4,
+      "sym_038": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Hilang rasa atau tenaga mendadak"
+      ],
+      "radiation": [
+        "Hanya terjadi pada satu sisi tubuh"
+      ],
+      "aggravating_factors": [
+        "Tidak spesifik"
+      ],
+      "relieving_factors": [
+        "Tidak ada, merupakan gawat darurat medis"
+      ]
+    },
+    "red_flags": [
+      "Kelemahan anggota gerak mendadak",
+      "Bicara pelo",
+      "Wajah merot/asimetris"
+    ]
+  },
+  {
+    "id": "dis_012",
+    "icd10": "E11",
+    "name": "Diabetes Mellitus Tipe 2",
+    "category": "Metabolik & Endokrin",
+    "isInfectious": false,
+    "description": "Kondisi kronis hiperglikemia akibat resistensi insulin.",
+    "causes": "Gaya hidup sedentari, obesitas, faktor genetik.",
+    "symptoms_weights": {
+      "sym_054": 4,
+      "sym_025": 5,
+      "sym_055": 4,
+      "sym_052": 3,
+      "sym_058": 4,
+      "sym_036": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Rasa haus ekstrem",
+        "Sering terbangun BAK di malam hari"
+      ],
+      "radiation": [
+        "Kesemutan menjalar di ujung jari kaki/tangan (glove-stocking pattern)"
+      ],
+      "aggravating_factors": [
+        "Konsumsi gula tinggi"
+      ],
+      "relieving_factors": [
+        "Diet rendah karbohidrat",
+        "Obat antidiabetes"
+      ]
+    },
+    "red_flags": [
+      "Napas berbau aseton (ketoasidosis)",
+      "Luka membusuk di kaki",
+      "Penurunan kesadaran (koma hipo/hiperglikemik)"
+    ]
+  },
+  {
+    "id": "dis_013",
+    "icd10": "B01",
+    "name": "Varisela (Cacar Air)",
+    "category": "Infeksi & Kulit",
+    "isInfectious": true,
+    "description": "Infeksi primer virus Varicella Zoster yang sangat menular. Ditandai ruam vesikel yang gatal.",
+    "causes": "Infeksi virus Varicella Zoster melalui udara (droplet).",
+    "symptoms_weights": {
+      "sym_002": 3,
+      "sym_019": 5,
+      "sym_020": 5,
+      "sym_014": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Lenting berisi cairan jernih",
+        "Sangat gatal"
+      ],
+      "radiation": [
+        "Menyebar dari batang tubuh ke wajah dan ekstremitas"
+      ],
+      "aggravating_factors": [
+        "Udara panas",
+        "Berkeringat"
+      ],
+      "relieving_factors": [
+        "Bedak salisil",
+        "Antihistamin"
+      ]
+    },
+    "red_flags": [
+      "Ruam meluas hingga mengenai mata",
+      "Sesak napas",
+      "Bintik bernanah"
+    ]
+  },
+  {
+    "id": "dis_014",
+    "icd10": "G51.0",
+    "name": "Bell's Palsy",
+    "category": "Saraf",
+    "isInfectious": false,
+    "description": "Kelumpuhan otot wajah sesisi perifer mendadak tanpa kelumpuhan anggota tubuh lain.",
+    "causes": "Peradangan nervus fasialis idiopatik atau virus.",
+    "symptoms_weights": {
+      "sym_035": 5,
+      "sym_098": 4,
+      "sym_049": 2,
+      "sym_067": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Tidak bisa menutup mata rapat",
+        "Mulut mencong"
+      ],
+      "radiation": [
+        "Hanya memengaruhi wajah sesisi, tenaga lengan kaki normal"
+      ],
+      "aggravating_factors": [
+        "Makan/minum menetes dari sisi wajah lumpuh"
+      ],
+      "relieving_factors": [
+        "Pijat wajah ringan",
+        "Kortikosteroid"
+      ]
+    },
+    "red_flags": [
+      "Disertai lemah tangan/kaki (indikasi Stroke)",
+      "Kehilangan kesadaran"
+    ]
+  },
+  {
+    "id": "dis_015",
+    "icd10": "J01",
+    "name": "Sinusitis Akut",
+    "category": "THT",
+    "isInfectious": true,
+    "description": "Peradangan rongga sinus di sekitar hidung, menimbulkan tekanan dan ingus purulen.",
+    "causes": "Infeksi bakteri atau virus, komplikasi dari pilek biasa.",
+    "symptoms_weights": {
+      "sym_047": 5,
+      "sym_048": 4,
+      "sym_004": 4,
+      "sym_002": 2,
+      "sym_066": 3
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Nyeri tekan di area dahi atau pipi",
+        "Ingus kental hijau/kuning"
+      ],
+      "radiation": [
+        "Nyeri menjalar ke gigi atas"
+      ],
+      "aggravating_factors": [
+        "Menundukkan kepala",
+        "Udara dingin"
+      ],
+      "relieving_factors": [
+        "Kompres hangat di wajah",
+        "Dekongestan"
+      ]
+    },
+    "red_flags": [
+      "Bengkak di sekitar mata",
+      "Demam sangat tinggi",
+      "Kaku kuduk"
+    ]
+  },
+  {
+    "id": "dis_016",
+    "icd10": "K29.7",
+    "name": "Gastritis (Maag Akut)",
+    "category": "Gastrointestinal",
+    "isInfectious": false,
+    "description": "Peradangan mukosa lambung akibat iritasi asam, obat, atau bakteri H. pylori.",
+    "causes": "Konsumsi NSAID, kopi, stres, makan tidak teratur.",
+    "symptoms_weights": {
+      "sym_041": 5,
+      "sym_005": 4,
+      "sym_042": 4,
+      "sym_079": 3,
+      "sym_006": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Perih",
+        "Melilit di ulu hati"
+      ],
+      "radiation": [
+        "Menyebar ke punggung atas"
+      ],
+      "aggravating_factors": [
+        "Makan terlalu pedas/asam",
+        "Terlambat makan",
+        "Minum NSAID"
+      ],
+      "relieving_factors": [
+        "Makan porsi kecil sering",
+        "Antasida"
+      ]
+    },
+    "red_flags": [
+      "Muntah darah",
+      "BAB berwarna hitam aspal"
+    ]
+  },
+  {
+    "id": "dis_017",
+    "icd10": "M10",
+    "name": "Gout Artritis (Asam Urat)",
+    "category": "Otot & Tulang",
+    "isInfectious": false,
+    "description": "Peradangan sendi mendadak akibat kristalisasi asam urat.",
+    "causes": "Hiperurisemia, sering karena diet tinggi purin.",
+    "symptoms_weights": {
+      "sym_015": 5,
+      "sym_059": 5,
+      "sym_002": 2,
+      "sym_061": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Nyeri sangat hebat",
+        "Panas dan kemerahan mencolok"
+      ],
+      "radiation": [
+        "Biasanya pada pangkal ibu jari kaki (Podagra)"
+      ],
+      "aggravating_factors": [
+        "Menyentuh sendi",
+        "Berjalan",
+        "Makan jeroan/seafood"
+      ],
+      "relieving_factors": [
+        "Kompres dingin",
+        "Obat antiinflamasi nonsteroid"
+      ]
+    },
+    "red_flags": [
+      "Demam menggigil kuat (curiga arthritis septik)",
+      "Sendi benar-benar tidak bisa digerakkan"
+    ]
+  },
+  {
+    "id": "dis_018",
+    "icd10": "B15",
+    "name": "Hepatitis A",
+    "category": "Infeksi & Pencernaan",
+    "isInfectious": true,
+    "description": "Infeksi hati oleh virus hepatitis A yang menular melalui makanan tercemar.",
+    "causes": "Fecal-oral, konsumsi makanan atau air yang terkontaminasi.",
+    "symptoms_weights": {
+      "sym_022": 5,
+      "sym_023": 5,
+      "sym_002": 3,
+      "sym_005": 4,
+      "sym_081": 4
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Mata dan kulit perlahan menguning",
+        "Urine sepekat teh"
+      ],
+      "radiation": [
+        "Nyeri perut tumpul di kanan atas (hati)"
+      ],
+      "aggravating_factors": [
+        "Makan berlemak"
+      ],
+      "relieving_factors": [
+        "Istirahat total (tirah baring)"
+      ]
+    },
+    "red_flags": [
+      "Penurunan kesadaran/linglung",
+      "Perdarahan spontan"
+    ]
+  },
+  {
+    "id": "dis_019",
+    "icd10": "M54.5",
+    "name": "Low Back Pain (LBP) Mekanik",
+    "category": "Otot & Tulang",
+    "isInfectious": false,
+    "description": "Nyeri pinggang bawah akibat masalah otot ligamen tulang belakang, tanpa jepitan saraf berat.",
+    "causes": "Postur buruk, angkat beban berat tiba-tiba, kelemahan otot core.",
+    "symptoms_weights": {
+      "sym_032": 5,
+      "sym_016": 4,
+      "sym_014": 2
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Kaku",
+        "Pegal atau tertarik (spasme)"
+      ],
+      "radiation": [
+        "Menjalar hingga bokong, tetapi tidak sampai ke bawah lutut"
+      ],
+      "aggravating_factors": [
+        "Membungkuk",
+        "Duduk lama",
+        "Angkat barang"
+      ],
+      "relieving_factors": [
+        "Berbaring di permukaan datar keras",
+        "Kompres hangat"
+      ]
+    },
+    "red_flags": [
+      "Mati rasa di area selangkangan (saddle anesthesia)",
+      "Tidak bisa menahan BAB/BAK",
+      "Kaki lemah total"
+    ]
+  },
+  {
+    "id": "dis_020",
+    "icd10": "A09",
+    "name": "Gastroenteritis Akut (Muntaber)",
+    "category": "Infeksi",
+    "isInfectious": true,
+    "description": "Peradangan lambung dan usus berakibat diare dan muntah masif. Berisiko tinggi dehidrasi.",
+    "causes": "Infeksi rotavirus atau bakteri patogen di makanan.",
+    "symptoms_weights": {
+      "sym_008": 5,
+      "sym_006": 5,
+      "sym_007": 4,
+      "sym_002": 3,
+      "sym_014": 4
+    },
+    "sacred_seven_clues": {
+      "quality": [
+        "Perut melilit sebelum BAB",
+        "Feses sangat cair/air"
+      ],
+      "radiation": [
+        "Nyeri merata di perut"
+      ],
+      "aggravating_factors": [
+        "Makan/minum merangsang refleks lambung usus"
+      ],
+      "relieving_factors": [
+        "Minum oralit",
+        "Setelah buang air besar"
+      ]
+    },
+    "red_flags": [
+      "Mata sangat cekung",
+      "Lemas tidak bisa minum",
+      "Urine tidak keluar sama sekali"
+    ]
+  }
+]

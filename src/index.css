@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* CSS Trick untuk mengatasi masalah 100vh di Mobile Browser */
+  :root {
+      --app-height: 100vh;
+  }
+
+  /* Jika browser mendukung dvh, gunakan dvh (Dynamic Viewport Height) */
+  @supports (height: 100dvh) {
+      :root {
+          --app-height: 100dvh;
+      }
+  }
+
+  html,
+  body {
+      height: var(--app-height);
+      min-height: var(--app-height);
+      overflow: hidden;
+      /* Mencegah body scrolling, scroll hanya di container dalam */
+      margin: 0;
+      padding: 0;
+      background-color: #f2f7f6;
+  }
+}
+
+@layer utilities {
+  .h-app {
+      height: var(--app-height);
+  }
+
+  /* Hide scrollbar for clean app-like feel */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+
+  .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+}
