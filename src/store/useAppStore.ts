@@ -3,7 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import localforage from 'localforage';
 
 localforage.config({
-  name: 'SymptomsDiary',
+  name: 'Rahasya',
   storeName: 'app_data'
 });
 
@@ -166,7 +166,7 @@ export const useAppStore = create<AppState>()(
       }
     }),
     {
-      name: 'symptonsdiary_storage',
+      name: 'rahasya_storage',
       storage: createJSONStorage(() => customStorage),
     }
   )

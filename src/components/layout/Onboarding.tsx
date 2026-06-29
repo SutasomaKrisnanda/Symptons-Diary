@@ -21,9 +21,9 @@ export default function Onboarding() {
             </div>
           </div>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6 lg:leading-tight">Symptons Diary</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6 lg:leading-tight">Rahasya</h1>
           <p className="text-gray-500 mb-8 leading-relaxed text-lg lg:max-w-md">
-            Catat gejala harianmu dan dapatkan prediksi arah diagnosis medis dengan bantuan AI secara instan.
+            Kesehatanmu, Rahasiamu. Ceritakan Tanpa Jejak.
           </p>
         </div>
 

@@ -31,7 +31,7 @@ export default function AppLayout() {
           <div className="w-12 h-12 bg-brand-light rounded-2xl flex items-center justify-center">
             <ShieldCheck weight="fill" className="text-3xl text-brand" />
           </div>
-          <h1 className="text-xl font-bold text-gray-800 leading-tight">Symptons Diary</h1>
+          <h1 className="text-xl font-bold text-gray-800 leading-tight">Rahasya</h1>
         </div>
 
         <nav className="flex-1 px-6 space-y-2 mt-4">
