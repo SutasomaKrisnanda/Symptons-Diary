@@ -94,17 +94,36 @@ export default function DiagnosisTab() {
         'Tidak ada penyerta parah'
       ]);
     } else if (nextStep === 4) {
-      // Selesai Anamnesis, jalankan algoritma prediksi
+      addMessage('ai', 'Selain gejala saat ini, apakah Anda memiliki **Riwayat Penyakit Dahulu** (misalnya hipertensi, diabetes, asma, atau pernah mengalami keluhan serupa)?', [
+        'Ada riwayat Hipertensi / Diabetes',
+        'Ada riwayat Asma / Alergi',
+        'Pernah mengalami ini sebelumnya',
+        'Tidak ada riwayat penyakit'
+      ]);
+    } else if (nextStep === 5) {
+      addMessage('ai', 'Bagaimana dengan **Riwayat Penyakit Keluarga**? Apakah ada anggota keluarga inti (orang tua/saudara) yang memiliki penyakit bawaan atau kronis?', [
+        'Ya, ada riwayat Jantung / Stroke',
+        'Ya, ada riwayat Kanker',
+        'Ya, ada riwayat Genetik lainnya',
+        'Tidak ada riwayat keluarga'
+      ]);
+    } else if (nextStep === 6) {
+      addMessage('ai', 'Terakhir, terkait **Riwayat Sosial & Lingkungan**, apakah Anda memiliki kebiasaan merokok, minum alkohol, atau sedang dalam stres berlebih?', [
+        'Perokok aktif / Pasif',
+        'Sering minum alkohol',
+        'Sedang banyak pikiran / stres',
+        'Gaya hidup sehat / Normal'
+      ]);
+    } else if (nextStep === 7) {
+      // Selesai Anamnesis (Sacred Seven + Fundamental Four), jalankan algoritma prediksi
       const symptomIds = symptomLogs.map(s => s.symptomId);
       // Asumsikan kita memberi skor multiplier acak berdasarkan flow untuk demo ini
       const dummyMultiplier = { "dis_002": 1.5 }; // Misal mengarah ke UAP
-      const results = predictDiagnosis(symptomIds, dummyMultiplier);
+      const predictions = predictDiagnosis(symptomIds, dummyMultiplier);
       
-      addMessage('ai', 'Terima kasih atas informasinya. Saya sedang memproses data Sacred Seven Anda...');
+      setDiagnosisResults(predictions);
       
-      setTimeout(() => {
-        setDiagnosisResults(results);
-      }, 2000);
+      addMessage('ai', 'Terima kasih atas informasinya. Berdasarkan wawancara medis komprehensif kita (Riwayat Penyakit Sekarang, Dahulu, Keluarga, dan Sosial), berikut adalah kemungkinan kondisi klinis Anda:');
     }
   };
 

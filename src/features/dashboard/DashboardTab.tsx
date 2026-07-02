@@ -9,6 +9,7 @@ import VitalsModal from '../../components/modals/VitalsModal';
 import MedicationModal from '../../components/modals/MedicationModal';
 import SymptomPickerModal from '../../components/modals/SymptomPickerModal';
 import DiseaseDetailModal from '../../components/modals/DiseaseDetailModal';
+import ActiveSymptomDetailModal from '../../components/modals/ActiveSymptomDetailModal';
 import symptomsData from '../../data/symptoms.json';
 import diseasesData from '../../data/diseases.json';
 
@@ -16,7 +17,7 @@ export default function DashboardTab() {
   const { 
     vitals, symptomLogs, medicationLogs, notifications,
     setVitalsModalOpen, setMedicationModalOpen, setSymptomModalOpen,
-    setActiveTab, markNotificationRead 
+    setActiveTab, markNotificationRead, setActiveSymptomModalOpen 
   } = useAppStore();
   
   const [currentDate, setCurrentDate] = useState('');
@@ -24,6 +25,10 @@ export default function DashboardTab() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [selectedDisease, setSelectedDisease] = useState<any>(null);
+  
+  const [symptomFilter, setSymptomFilter] = useState('');
+  const [symptomSort, setSymptomSort] = useState<'time' | 'alpha' | 'severity'>('time');
+  const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
 
   useEffect(() => {
     const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -60,6 +65,20 @@ export default function DashboardTab() {
     ...symptomLogs.map(log => ({ ...log, type: 'symptom', time: new Date(log.onset).getTime() })),
     ...medicationLogs.map(log => ({ ...log, type: 'medication', time: new Date(`${log.date}T${log.time}`).getTime() }))
   ].sort((a, b) => b.time - a.time).slice(0, 5);
+
+  const processedSymptomLogs = useMemo(() => {
+    let res = [...symptomLogs];
+    if (symptomFilter) {
+      res = res.filter(l => l.symptomName.toLowerCase().includes(symptomFilter.toLowerCase()));
+    }
+    res.sort((a, b) => {
+      if (symptomSort === 'time') return new Date(b.onset).getTime() - new Date(a.onset).getTime();
+      if (symptomSort === 'alpha') return a.symptomName.localeCompare(b.symptomName);
+      if (symptomSort === 'severity') return (b.severity || 0) - (a.severity || 0);
+      return 0;
+    });
+    return res;
+  }, [symptomLogs, symptomFilter, symptomSort]);
 
   return (
     <div className="flex-1 w-full h-full overflow-y-auto no-scrollbar pb-28 lg:pb-8 relative animate-in fade-in duration-500">
@@ -292,18 +311,54 @@ export default function DashboardTab() {
 
             {/* Pemantauan Gejala */}
             <div>
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex justify-between items-center mb-6 relative z-10">
                 <h3 className="text-xl font-bold text-gray-800">Gejala Aktif</h3>
-                <div className="flex gap-2">
-                  <button className="w-10 h-10 rounded-full bg-white shadow-soft flex items-center justify-center text-gray-400 hover:text-brand transition-colors">
+                <div className="flex gap-2 relative">
+                  <button 
+                    onClick={() => setIsFilterDropdownOpen(!isFilterDropdownOpen)}
+                    className="w-10 h-10 rounded-full bg-white shadow-soft flex items-center justify-center text-gray-400 hover:text-brand transition-colors"
+                  >
                     <SlidersHorizontal className="text-lg" />
                   </button>
+
+                  {/* Filter Dropdown */}
+                  {isFilterDropdownOpen && (
+                    <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden z-20">
+                      <div className="p-4 space-y-4">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Pencarian</label>
+                          <input 
+                            type="text"
+                            placeholder="Filter gejala..."
+                            value={symptomFilter}
+                            onChange={(e) => setSymptomFilter(e.target.value)}
+                            className="w-full bg-gray-50 border border-gray-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Urutkan Berdasarkan</label>
+                          <select 
+                            value={symptomSort} 
+                            onChange={(e) => setSymptomSort(e.target.value as any)}
+                            className="w-full bg-gray-50 border border-gray-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-brand"
+                          >
+                            <option value="time">Waktu Terkini</option>
+                            <option value="alpha">Abjad (A-Z)</option>
+                            <option value="severity">Keparahan Terbesar</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {isFilterDropdownOpen && (
+                    <div className="fixed inset-0 z-10" onClick={() => setIsFilterDropdownOpen(false)}></div>
+                  )}
                 </div>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
-                {symptomLogs.slice(0, 2).map((log) => (
-                  <div key={log.id} className="bg-white rounded-[28px] p-6 shadow-soft border border-gray-50 flex flex-col justify-between aspect-square relative group hover:border-brand/30 hover:shadow-lg transition-all cursor-pointer">
+                {processedSymptomLogs.map((log) => (
+                  <div key={log.id} onClick={() => setActiveSymptomModalOpen(true, log)} className="bg-white rounded-[28px] p-6 shadow-soft border border-gray-50 flex flex-col justify-between aspect-square relative group hover:border-brand/30 hover:shadow-lg transition-all cursor-pointer">
                     <h4 className="font-bold text-gray-800 text-lg leading-tight line-clamp-2">{log.symptomName}</h4>
                     <p className="text-xs text-gray-400 mt-1">Skala: {log.severity}/10</p>
                     <div className="flex justify-between items-end mt-4">
@@ -375,6 +430,7 @@ export default function DashboardTab() {
       <VitalsModal />
       <MedicationModal />
       <SymptomPickerModal />
+      <ActiveSymptomDetailModal />
       <DiseaseDetailModal disease={selectedDisease} onClose={() => setSelectedDisease(null)} />
     </div>
   );

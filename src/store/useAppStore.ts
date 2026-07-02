@@ -38,6 +38,8 @@ export interface SymptomLog {
   severity?: number;
   notes?: string;
   anamnesisCompleted?: boolean;
+  isContinuous?: boolean;
+  endDate?: string;
 }
 
 export interface MedicationLog {
@@ -70,13 +72,19 @@ interface AppState {
   isSymptomModalOpen: boolean;
   isMedicationModalOpen: boolean;
   isDeleteModalOpen: boolean;
+  isActiveSymptomModalOpen: boolean;
   
   prefilledSymptomId: string | null;
+  selectedActiveSymptom: SymptomLog | null;
 
   setOnboarded: (value: boolean) => void;
   setActiveTab: (index: number) => void;
   updateVitals: (vitals: Partial<Vitals>) => void;
+  
   addSymptomLog: (log: SymptomLog) => void;
+  updateSymptomLog: (log: SymptomLog) => void;
+  deleteSymptomLog: (id: string) => void;
+  
   addMedicationLog: (log: MedicationLog) => void;
   markNotificationRead: (id: string) => void;
   
@@ -84,9 +92,19 @@ interface AppState {
   setSymptomModalOpen: (isOpen: boolean, prefilledId?: string) => void;
   setMedicationModalOpen: (isOpen: boolean) => void;
   setDeleteModalOpen: (isOpen: boolean) => void;
+  setActiveSymptomModalOpen: (isOpen: boolean, log?: SymptomLog | null) => void;
   
   resetData: () => void;
 }
+
+// Fungsi bantu cek overlap tanggal
+const checkOverlap = (aStart: string, aEnd: string, bStart: string, bEnd: string) => {
+  const as = new Date(aStart).getTime();
+  const ae = aEnd ? new Date(aEnd).getTime() : new Date(aStart).getTime() + 86400000; // default 1 hari
+  const bs = new Date(bStart).getTime();
+  const be = bEnd ? new Date(bEnd).getTime() : new Date(bStart).getTime() + 86400000;
+  return Math.max(as, bs) < Math.min(ae, be); // Overlap jika max(starts) < min(ends)
+};
 
 export const useAppStore = create<AppState>()(
   persist(
@@ -102,8 +120,10 @@ export const useAppStore = create<AppState>()(
       isSymptomModalOpen: false,
       isMedicationModalOpen: false,
       isDeleteModalOpen: false,
+      isActiveSymptomModalOpen: false,
       
       prefilledSymptomId: null,
+      selectedActiveSymptom: null,
 
       setOnboarded: (value) => set({ hasOnboarded: value }),
       setActiveTab: (index) => set({ activeTabIndex: index }),
@@ -125,19 +145,49 @@ export const useAppStore = create<AppState>()(
       }),
       
       addSymptomLog: (log) => set((state) => {
-        const newLogs = [log, ...state.symptomLogs];
-        const newNotifs = [...state.notifications];
-        newNotifs.unshift({
-          id: Math.random().toString(36).substring(2),
-          message: `Anda belum melengkapi detail anamnesis untuk ${log.symptomName}. Klik untuk melanjutkan wawancara.`,
-          type: 'reminder',
-          createdAt: new Date().toISOString(),
-          read: false,
-          action: 'anamnesis'
+        let isMerged = false;
+        
+        // Cari apakah ada duplikat yang tumpang tindih
+        const newLogs = state.symptomLogs.map(existingLog => {
+          if (existingLog.symptomId === log.symptomId) {
+            const isSameDay = new Date(existingLog.onset).toDateString() === new Date(log.onset).toDateString();
+            const isOverlapping = checkOverlap(existingLog.onset, existingLog.endDate || existingLog.onset, log.onset, log.endDate || log.onset);
+            
+            if (isSameDay || isOverlapping) {
+              isMerged = true;
+              return { ...existingLog, ...log, id: existingLog.id }; // Gabungkan, pertahankan ID lama
+            }
+          }
+          return existingLog;
         });
+
+        if (!isMerged) {
+          newLogs.unshift(log); // Tambahkan baru jika tidak ada overlap
+        }
+
+        const newNotifs = [...state.notifications];
+        if (!isMerged) {
+          newNotifs.unshift({
+            id: Math.random().toString(36).substring(2),
+            message: `Anda belum melengkapi detail anamnesis untuk ${log.symptomName}. Klik untuk melanjutkan wawancara.`,
+            type: 'reminder',
+            createdAt: new Date().toISOString(),
+            read: false,
+            action: 'anamnesis'
+          });
+        }
+        
         return { symptomLogs: newLogs, notifications: newNotifs };
       }),
       
+      updateSymptomLog: (log) => set((state) => ({
+        symptomLogs: state.symptomLogs.map(l => l.id === log.id ? log : l)
+      })),
+
+      deleteSymptomLog: (id) => set((state) => ({
+        symptomLogs: state.symptomLogs.filter(l => l.id !== id)
+      })),
+
       addMedicationLog: (log) => set((state) => ({ medicationLogs: [log, ...state.medicationLogs] })),
       
       markNotificationRead: (id) => set((state) => ({
@@ -148,6 +198,7 @@ export const useAppStore = create<AppState>()(
       setSymptomModalOpen: (isOpen, prefilledId = undefined) => set({ isSymptomModalOpen: isOpen, prefilledSymptomId: prefilledId || null }),
       setMedicationModalOpen: (isOpen) => set({ isMedicationModalOpen: isOpen }),
       setDeleteModalOpen: (isOpen) => set({ isDeleteModalOpen: isOpen }),
+      setActiveSymptomModalOpen: (isOpen, log = null) => set({ isActiveSymptomModalOpen: isOpen, selectedActiveSymptom: log }),
 
       resetData: () => {
         set({ 
@@ -161,7 +212,9 @@ export const useAppStore = create<AppState>()(
           isSymptomModalOpen: false,
           isMedicationModalOpen: false,
           isDeleteModalOpen: false,
-          prefilledSymptomId: null
+          isActiveSymptomModalOpen: false,
+          prefilledSymptomId: null,
+          selectedActiveSymptom: null
         });
       }
     }),
